@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pokémon Unite - Welcome Prince</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #ff0000 40%, #ffffff 100%);
+      color: #fff;
+      text-align: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      position: relative;
+      z-index: 2;
+    }
+
+    h1 {
+      font-size: 2em;
+      text-shadow: 2px 2px #000;
+    }
+
+    .roles {
+      margin-top: 25px;
+      display: grid;
+      grid-template-columns: repeat(2, 150px);
+      gap: 15px;
+      justify-content: center;
+    }
+
+    .role-btn {
+      background: #fff;
+      color: #d32f2f;
+      border: none;
+      border-radius: 15px;
+      padding: 15px 20px;
+      font-weight: bold;
+      font-size: 1em;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+    }
+
+    .role-btn:hover {
+      background: #ff5252;
+      color: #fff;
+      transform: scale(1.1);
+    }
+
+    .pikachu {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      width: 120px;
+      opacity: 0.9;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .container, h1, .roles {
+      animation: fadeIn 1s ease;
+    }
+
+    .popup {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: white;
+      color: #d32f2f;
+      padding: 20px 30px;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+      text-align: center;
+      font-weight: bold;
+      z-index: 10;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome Prince to the Pokémon Unite World ⚡</h1>
+    <div class="roles">
+      <button class="role-btn" onclick="selectRole('All-Rounder')">All-Rounder</button>
+      <button class="role-btn" onclick="selectRole('Supporter')">Supporter</button>
+      <button class="role-btn" onclick="selectRole('Attacker')">Attacker</button>
+      <button class="role-btn" onclick="selectRole('Defender')">Defender</button>
+    </div>
+  </div>
+
+  <div class="popup" id="popup"></div>
+  <img src="https://pngimg.com/uploads/pokemon/pokemon_PNG153.png" class="pikachu" alt="Pikachu">
+
+  <script>
+    function selectRole(role) {
+      const popup = document.getElementById('popup');
+      popup.innerHTML = `⚡ You chose the <strong>${role}</strong> role!`;
+      popup.style.display = 'block';
+      setTimeout(() => {
+        popup.style.display = 'none';
+      }, 2000);
+    }
+  </script>
+</body>
+</html>
